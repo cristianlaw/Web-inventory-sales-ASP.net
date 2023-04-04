@@ -1,0 +1,11 @@
+Inventory and sales system, basic functions for testing. 
+
+ASP.net core 6 Web Programming project for university.
+(MVC, CRUD, RESTfull)
+
+Visual Studio 2022
+Microsoft SQL Server
+
+In MyMinistritosAPI, console:
+PM> Add-Migration name
+PM> update-DataBase
