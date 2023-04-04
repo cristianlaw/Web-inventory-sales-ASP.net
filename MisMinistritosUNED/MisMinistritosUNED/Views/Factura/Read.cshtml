@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MisMinistritosUNED.Models.VentaModel>
+
+@{
+    ViewData["Title"] = "Factura";
+}
+
+<h1>@ViewBag.Cliente</h1>
+<a>Cédula: @ViewBag.cedula</a>
+<hr />
+<a>Factura Número: @ViewBag.idFactura</a>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label class="control-label">Id:</label>
+            </th>
+            <th>
+                <label class="control-label">Descripción:</label>
+            </th>
+            <th>
+                <label class="control-label">Precio:</label>
+            </th>
+            <th>
+                <label class="control-label">Cantidad:</label>
+            </th>
+            <th>
+                <label class="control-label">Total:</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idDatoF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcionDatoF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productoPrecio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidadProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalProducto)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<hr />
+<a>Subtotal: @ViewBag.sub</a>
+<br/>
+<a>IVA: @ViewBag.iva</a>
+<br />
+<a>Total: @ViewBag.total</a>
+<hr />
+<br />
+<br />
+<
+<a asp-action="List" asp-controller="Factura" asp-route-cedula="@ViewBag.cedula" class="btn btn-outline-primary">Lista de Facturas</a>
+<br />
+<br />
+<a asp-action="Create" asp-controller="Factura" asp-route-cedula="@ViewBag.cedula" class="text-dark fw-bold">Crear nueva factura</a>
+<br />
+<br />
+<a asp-action="Login" asp-controller="Login" asp-route-cedula="@ViewBag.cedula" class="text-dark fw-bold">Volver al Login</a>
+

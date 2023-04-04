@@ -1,0 +1,59 @@
+﻿@model MisMinistritosUNED.Models.ProductoModel
+
+@{
+    ViewData["Title"] = "Borrar Producto";
+}
+
+<h1>¿Desea borrar este producto?</h1>
+<hr/>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label class="control-label">Id</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Descripción:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Fecha de ingreso:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ingreso)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Precio de compra:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.precioCompra)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Utilidad:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.utilidad)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Proveedor:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.proveedor)
+        </dd>
+    </dl>
+    <hr />
+    
+    <form asp-action="Delete" >
+        <input type="submit" value="Borrar Producto" class="btn btn-danger" /> |
+        <a asp-action="List">Volver a la lista</a>
+    </form>
+</div>
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>

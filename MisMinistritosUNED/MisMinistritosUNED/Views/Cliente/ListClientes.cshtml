@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MisMinistritosUNED.Models.ClienteModel>
+
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<h1>Lista de Clientes</h1>
+@if ( Model != null) //Valida si hay elementos y entra
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <label class="control-label">Cédula:</label>
+                </th>
+                <th>
+                    <label class="control-label">Nombre Completo:</label>
+                </th>
+                <th>
+                    <label class="control-label">Año de nacimiento:</label>
+                </th>
+                <th>
+                    <label class="control-label">Teléfono:</label>
+                </th>
+                <th>
+                    <label class="control-label">Profesión:</label>
+                </th>
+                <th>
+                    <label class="control-label">Correo electrónico:</label>
+                </th>
+                <th>
+                    <label class="control-label">Donde se enteró de la página:</label>
+                </th>
+                <th>
+                    <label class="control-label">Contraseña:</label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cedula)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombreCompleto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fechaNacimiento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.telefono)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.profesion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.correoElectronico)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.comboReferencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.contrasena)
+                        </td>
+                    </tr>
+                }       
+
+        </tbody>
+    </table>
+    <br />
+    <a asp-action="LoginAdmin" asp-controller="Login">Volver a las opciones</a>
+    <br />
+    <br />
+    <a asp-action="Login" asp-controller="Login">Volver al login</a>
+}
+else
+{
+    <p>No hay clientes</p>
+    <br />
+    <a asp-action="LoginAdmin" asp-controller="Login">Volver a las opciones</a>
+    <br />
+    <br />
+    <a asp-action="Login" asp-controller="Login">Volver al login</a>
+}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>

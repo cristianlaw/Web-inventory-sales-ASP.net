@@ -1,0 +1,61 @@
+﻿@model MisMinistritosUNED.Models.ProductoModel
+
+@{
+    ViewData["Title"] = "Actualizar Producto";
+}
+
+<h1>Actualizar Producto</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label">Id:</label>
+                <input asp-for="id" class="form-control" readonly />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-label">Descripción</label>
+                <input asp-for="descripcion" class="form-control" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ingreso" class="control-label">Fecha de ingreso:</label>
+                <input asp-for="ingreso" class="form-control" />
+                <span asp-validation-for="ingreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precioCompra" class="control-label">Precio de compra:</label>
+                <input asp-for="precioCompra" class="form-control" />
+                <span asp-validation-for="precioCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="utilidad" class="control-label">Utilidad</label>
+                <input asp-for="utilidad" class="form-control" />
+                <span asp-validation-for="utilidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="proveedor" class="control-label">Proveedor</label>
+                <select asp-for="@Model.proveedor" class="form-select" asp-items="@(new SelectList(ViewBag.pro,"cedula","descripcion"))"></select>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a asp-action="List">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>

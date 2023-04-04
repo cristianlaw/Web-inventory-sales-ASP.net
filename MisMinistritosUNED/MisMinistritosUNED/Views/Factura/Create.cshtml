@@ -1,0 +1,474 @@
+﻿@model MisMinistritosUNED.Models.ClienteModel
+
+@{
+    ViewData["Title"] = "Facturación";
+}
+
+@section Styles{
+    <style>
+        .input-group-text {
+            background-color: #343a40;
+        }
+
+        #tabla {
+            border-collapse: collapse;
+            border: 1px solid #9D9D9D;
+        }
+
+            #tabla > thead > tr {
+                background-color: #20374c !important;
+            }
+    </style>
+}
+
+    <hr />
+    <div>
+        <dl class="row">
+            <dd class="col-sm-20">
+                <h3>
+                    @Html.DisplayFor(model => model.nombreCompleto)
+                </h3>
+                <a>
+                    @Html.DisplayFor(model => model.cedula)
+                </a>
+            </dd>
+            <br />
+            <hr />
+        </dl>
+    </div>
+
+
+    <h1>Área de Facturación</h1>
+    <hr />
+
+
+    <div class="row">
+
+
+        <div class="col-sm-8 mb-2">
+            <div class="card">
+                <div class="card-header">
+                    Productos
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="tabla" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th style="width: 80px;">Cantidad</th>
+                                        <th>Precio Unitario</th>
+                                        <th>Precio Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    Buscar Productos
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="input-group input-group-sm mb-2">
+                                <input type="text" class="form-control form-control-sm" id="buscarProducto" data-idproducto="0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            Buscar Tours
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div class="input-group input-group-sm mb-2">
+                        <input type="text" class="form-control form-control-sm" id="buscarTour" data-idtour="0" />
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            Detalle Venta
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text bg-primary">Sub Total</span>
+                        <input type="text" id="txtSubTotal" class="form-control form-control-sm text-end fw-bold" disabled>
+                    </div>
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text bg-primary">IVA (13%)</span>
+                        <input type="text" id="txtIva" class="form-control form-control-sm text-end fw-bold" disabled>
+                    </div>
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text bg-primary">Total</span>
+                        <input type="text" id="txtTotal" class="form-control form-control-sm text-end fw-bold" disabled>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card text-center">
+                <div class="card-body">
+                    <button class="btn btn-primary" id="btnTerminarVenta"> Hacer Factura</button>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <div class="card-body">
+                    <button class="btn btn-danger" id="btnLimpiarLista"> Limpiar Lista</button>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <div class="card-body">
+                    <a asp-action="List" asp-controller="Factura" asp-route-cedula="@Model.cedula" class="btn btn-primary">Lista de Facturas</a>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <div class="card-header">
+                    Otras Opciones:
+                </div>
+                <div class="card-body">
+                    <a asp-action="ReadCliente" asp-controller="Cliente" asp-route-cedula="@Model.cedula" class="text-dark fw-bold">Detalles del Cliente</a>
+                    <br />
+                    <a asp-action="IrActualizar" asp-controller="Cliente" asp-route-cedula="@Model.cedula" class="text-dark fw-bold">Actualizar Cliente</a>
+                    <br />
+                    <a asp-action="IrBorrar" asp-controller="Cliente" asp-route-cedula="@Model.cedula" class="text-dark fw-bold">Borrar Cliente</a>
+                    <br />
+                </div>
+            </div>
+
+            
+
+
+           @*Sección para los scripts en facturación-----------------------------------------------------*@
+
+            @section Scripts
+            {
+            <script>
+
+                var productos = [];
+                $(document).ready(function () {
+                    MostrarPrecios();
+                    mostrarListaVacia();
+                })
+
+                function mostrarListaVacia() {
+                    if (productos.length === 0) {
+                        $("#tabla tbody").html("<tr><td colspan='5'><p class='text-warning text-center'>Ningún producto seleccionado</p></td></tr>");
+                    }
+                }
+
+                //Método para mostrar los productos------------------------------------------------------
+                $("#buscarProducto").autocomplete({
+                    source: function (request, response) {
+
+                        jQuery.ajax({
+                            url: "@Url.Action("AutoCompleteProducto","Factura")?search=" + request.term,
+                            type: "GET",
+                            dataType: "json",
+                            success: function (data) {
+                                response(
+                                    $.map(data, function (item) {
+                                        return { label: item.label, value: item.value }
+                                    })
+                                )
+                            },
+                            error: function (error) {
+                                console.log("bad")
+                            }
+                        })
+                    },
+                    minLength: 1,
+                    select: function (event, ui) {
+                        event.preventDefault();
+                        AgregarProducto(ui.item.value)
+                        $(this).val("");
+                    },
+                    focus: function (event, ui) {
+                        event.preventDefault();
+                        $(this).val(ui.item.label);
+                    }
+                })
+
+                //Método para mostrar los tours------------------------------------------------------
+                $("#buscarTour").autocomplete({
+                    source: function (request, response) {
+
+                        jQuery.ajax({
+                            url: "@Url.Action("AutoCompleteTour","Factura")?buscar=" + request.term,
+                            type: "GET",
+                            dataType: "json",
+                            success: function (data) {
+                                response(
+                                    $.map(data, function (item) {
+                                        return { label: item.label, value: item.value }
+                                    })
+                                )
+                            },
+                            error: function (error) {
+                                console.log("bad")
+                            }
+                        })
+                    },
+                    minLength: 1,
+                    select: function (event, ui) {
+                        event.preventDefault();
+                        AgregarTour(ui.item.value)
+                        $(this).val("");
+                    },
+                    focus: function (event, ui) {
+                        event.preventDefault();
+                        $(this).val(ui.item.label);
+                    }
+                })
+
+
+                //Método para mostrar los productos------------------------------------------------------
+                function AgregarProducto(idproducto) {
+                    $.ajax({
+                        url: "@Url.Action("ObtenerProducto","Factura")?idproducto=" + idproducto,
+                        type: "GET",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            const existe = productos.some(element => element.IdProducto === data.id);
+                            if (existe) {
+                                Object.keys(productos).forEach(index => {
+
+                                    if (productos[index].IdProducto === data.id) {
+                                        productos[index] = {
+                                            IdProducto: data.id,
+                                            Descripcion: data.descripcion,
+                                            Ingreso: data.ingreso,
+                                            PrecioVenta: data.precioCompra,
+                                            Utilidad: data.utilidad,
+                                            Proveedor: data.proveedor,
+                                            Cantidad: productos[index].Cantidad + 1,
+                                            Total: data.precioCompra * (productos[index].Cantidad + 1)
+                                        }
+                                    }
+                                });
+                            } else {
+                                var producto = {
+                                    IdProducto: data.id,
+                                    Descripcion: data.descripcion,
+                                    Ingreso: data.ingreso,
+                                    PrecioVenta: data.precioCompra,
+                                    Utilidad: data.utilidad,
+                                    Proveedor: data.proveedor,
+                                    Cantidad: 1,
+                                    Total: data.precioCompra
+                                }
+                                productos.push(producto);
+                            }
+                            $("#tabla tbody").html("");
+                            $.each(productos, function (i, item) {
+                                $("<tr>").append(
+                                    $("<td>").append(item.Descripcion),
+                                    $("<td>").append(item.Cantidad),
+                                    $("<td>").append(item.PrecioVenta),
+                                    $("<td>").append(item.Total),
+                                    $("<td>").append($("<button>").addClass("btn btn-danger btn-eliminar btn-sm").append($("<i>").addClass("bi bi-trash-fill"))
+                                    ),
+                                ).data("idproducto", item.IdProducto).appendTo("#tabla tbody")
+                            })
+                            MostrarPrecios();
+                        },
+                        error: function (error) {
+                            console.log("bad")
+                        }
+                    })
+                }
+
+                //Método para mostrar los tours------------------------------------------------------
+                function AgregarTour(idtour) {
+                    $.ajax({
+                        url: "@Url.Action("ObtenerTour","Factura")?idtour=" + idtour,
+                        type: "GET",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            const existe = productos.some(element => element.IdProducto === data.id);
+                            if (existe) {
+                                Object.keys(productos).forEach(index => {
+
+                                    if (productos[index].IdProducto === data.id) {
+                                        productos[index] = {
+                                            IdProducto: data.id,
+                                            Descripcion: data.descripcion,
+                                            VerImagen: data.verImagen,
+                                            DiasTour: data.diasTour,
+                                            Proveedor: data.proveedor,
+                                            PrecioVenta: data.precioTour,
+                                            Cantidad: productos[index].Cantidad + 1,
+                                            Total: data.precioTour * (productos[index].Cantidad + 1)
+                                        }
+                                    }
+                                });
+                            } else {
+                                var producto = {
+                                    IdProducto: data.id,
+                                    Descripcion: data.descripcion,
+                                    VerImagen: data.verImagen,
+                                    DiasTour: data.diasTour,
+                                    Proveedor: data.proveedor,
+                                    PrecioVenta: data.precioTour,
+                                    Cantidad: 1,
+                                    Total: data.precioTour
+                                }
+                                productos.push(producto);
+                            }
+                            $("#tabla tbody").html("");
+                            $.each(productos, function (i, item) {
+                                $("<tr>").append(
+                                    $("<td>").append(item.Descripcion),
+                                    $("<td>").append(item.Cantidad),
+                                    $("<td>").append(item.PrecioVenta),
+                                    $("<td>").append(item.Total),
+                                    $("<td>").append($("<button>").addClass("btn btn-danger btn-eliminar btn-sm").append($("<i>").addClass("bi bi-trash-fill"))
+                                    ),
+                                ).data("idtour", item.IdProducto).appendTo("#tabla tbody")
+                            })
+                            MostrarPrecios();
+                        },
+                        error: function (error) {
+                            console.log("bad")
+                        }
+                    })
+                }
+
+                //Botón borrar un producto-----------------------------------------------------------
+                $("#tabla tbody").on("click", ".btn-eliminar", function () {
+                    var idproducto = $(this).closest('tr').data("idproducto");
+                    const newArray = productos.filter(object => { return object.IdProducto !== idproducto; });
+                    productos = newArray;
+                    $(this).closest('tr').remove();
+                    MostrarPrecios();
+                })
+
+                //Limpiar valores-----------------------------------------------------------------------
+                $("#btnLimpiarLista").on("click", function () {
+                    $("#tabla tbody").html("");
+                    productos = [];
+                    mostrarListaVacia();
+                    MostrarPrecios();
+                })
+
+                //Mostrar los precios------------------------------------------------------------------
+                function MostrarPrecios() {
+                    let total = productos.reduce(function (accumulator, item) {
+                        return accumulator + item.Total
+                    }, 0)
+                    let base = total / 1.13;
+                    let iva = total - base;
+                    $("#pVentaTotal").html("₡ " + total.toFixed(2))
+                    $("#txtSubTotal").val("₡ " + base.toFixed(2))
+                    $("#txtIva").val("₡ " + iva.toFixed(2))
+                    $("#txtTotal").val("₡ " + total.toFixed(2))
+                }
+
+                //Botón hacer venta-------------------------------------------------------------------
+                $("#btnTerminarVenta").on("click", function () {
+                    if (productos.length == 0) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'No existen productos',
+                        })
+                        return;
+                    }
+
+                    //Lista de datos para envía al método FacturaController---------------------------
+                    var request_body = {
+                        MontoSubTotal: parseFloat($("#txtSubTotal").val().replace("₡ ", "")),
+                        MontoIVA: parseFloat($("#txtIva").val().replace("₡ ", "")),
+                        MontoTotal: parseFloat($("#txtTotal").val().replace("₡ ", "")),
+
+
+                        productosFactura: $.map(productos, function (item) {
+                            return {
+                                idDatoF: item.IdProducto,
+                                descripcionDatoF: item.Descripcion,
+                                productoPrecio: item.PrecioVenta,
+                                cantidadProducto: item.Cantidad,
+                                totalProducto: item.Total
+                            }
+                        })
+                    }
+
+                    //Envía los datos ---------------------------------------------------------------
+                    jQuery.ajax({
+                        url: '@Url.Action("RegistrarVenta", "Factura")',
+                        type: "POST",
+                        data: JSON.stringify(request_body),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            console.log(data)
+
+                            if (data.respuesta !== "error") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Venta Registrada',
+                                    text: 'Factura: ' + data.respuesta
+                                })
+
+                                $("#tabla tbody").html("");
+                                productos = [];
+                                mostrarListaVacia();
+                                MostrarPrecios();
+                                $("#txtdocumentocliente").val("");
+                                $("#txtnombrecliente").val("");
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Sin productos',
+                                })
+                            }
+                        },
+                        error: function (error) {
+                        },
+                        beforeSend: function () {
+                        }
+                    });
+                })
+            </script>
+
+        }
+

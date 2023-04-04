@@ -1,0 +1,72 @@
+﻿@model MisMinistritosUNED.Models.ClienteModel
+
+@{
+    ViewData["Title"] = "Borrar Cliente";
+}
+
+<h1>¿Desea borrar el cliente?</h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label class="control-label">Cédula:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cedula)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Nombre:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nombreCompleto)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Fecha de nacimiento:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.fechaNacimiento)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Teléfono:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Profesión:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.profesion)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Correo:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.correoElectronico)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Esperiencia:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.comboReferencia)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Contraseña:</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contrasena)
+        </dd>
+    </dl>
+    <br />
+    <form asp-action="DeleteCliente" asp-route-cedula="@Model.cedula">
+        <input type="submit" value="Borrar Cliente" class="btn btn-danger" /> |
+        <a asp-action="ReadCliente" asp-controller="Cliente" asp-route-cedula="@Model.cedula">Volver</a>
+    </form>
+
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+
+</div>

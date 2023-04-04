@@ -1,0 +1,68 @@
+﻿@model MisMinistritosUNED.Models.TourModel
+
+@{
+    ViewData["Title"] = "Añadir Tour";
+}
+<script language="javascript" type="text/javascript">
+    function StopBack() {
+        window.history.forward(1);
+    }
+</script>
+<h1>Añadir Tour</h1>
+<hr />
+@using (Html.BeginForm("Create", "Tour", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-label">Descripción:</label>
+                <input asp-for="descripcion" class="form-control" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="imagen" class="control-label">Imagen:</label>
+                <input type="file" asp-for="imagen" class="form-control"/>
+                <span asp-validation-for="imagen" class="text-danger"></span>
+
+
+
+                @*@Html.TextBoxFor(d=>d.imagen, new {@class="form-control", type="file", accept=".jpg"})
+                @Html.ValidationMessageFor(d=>d.imagen,"", new {@class="text-danger"})*@
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="diasTour" class="control-label">Días de la semana:</label>
+                <select asp-for="@Model.diasTour" class="form-select" asp-items="@(new SelectList(ViewBag.DatosTour,"nombreTour","nombreTour"))"></select>
+                <span asp-validation-for="diasTour" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="proveedor" class="control-label">Proveedor</label>
+                <select asp-for="@Model.proveedor" class="form-select" asp-items="@(new SelectList(ViewBag.pro,"cedula","descripcion"))"></select>
+                 <span asp-validation-for="proveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precioTour" class="control-label">Precio del tour:</label>
+                <input asp-for="precioTour" class="form-control" />
+                <span asp-validation-for="precioTour" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Añadir" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div>
+        <a asp-action="List">Volver a la lista</a>
+    </div>
+
+    @section Scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+}
+

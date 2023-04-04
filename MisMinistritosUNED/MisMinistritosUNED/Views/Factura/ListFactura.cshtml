@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MisMinistritosUNED.Models.FacturaModel>
+
+@{
+    ViewData["Title"] = "Lista Facturas";
+}
+
+<h1>Lista de Facturas</h1>
+
+@if (Model.Count() > 0) //Valida si hay elementos y entra
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <label class="control-label">Id de Factura:</label>
+                </th>
+                <th>
+                    <label class="control-label">Nombre del Cliente:</label>
+                </th>
+                <th>
+                    <label class="control-label">Total:</label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.facturaId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.clienteNombre)
+                    </td>
+                    <td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.montoTotal)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <a asp-action="LoginAdmin" asp-controller="Login">Volver a las opciones</a>
+    <br />
+    <br />
+    <a asp-action="Login" asp-controller="Login">Volver al login</a>
+
+}
+else
+{
+    <p>No hay facturas</p>
+    <br />
+
+    <br />
+    <br />
+    <a asp-action="LoginAdmin" asp-controller="Login">Volver a las opciones</a>
+    <br />
+    <br />
+    <a asp-action="Login" asp-controller="Login">Volver al login</a>
+
+}
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>

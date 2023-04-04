@@ -1,0 +1,60 @@
+﻿@model MisMinistritosUNED.Models.TourModel
+
+@{
+    ViewData["Title"] = "Borrar Tour";
+}
+<script language="javascript" type="text/javascript">
+    function StopBack() {
+        window.history.forward(1);
+    }
+</script>
+<h1>Borrar Tour</h1>
+
+<h3>¿Desea borrar este tour?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label class="control-label">Id</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Descripción</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Imagen</label>
+        </dt>
+        <dd class="col-sm-10">
+            <img src="data:image/jpg;base64,@Model.verImagen" width="100px" height="100px" />
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Días de la semana</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.diasTour)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Proveedor</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.proveedor)
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Precio del Tour</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.precioTour)
+        </dd>
+    </dl>
+    <hr />
+    <form asp-action="Delete" asp-route-cedula="@Model.id">
+        <input type="submit" value="Borrar Tour" class="btn btn-danger" /> |
+        <a asp-action="List">Volver a la lista</a>
+    </form>
+</div>
+

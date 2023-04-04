@@ -1,0 +1,47 @@
+﻿@model MisMinistritosUNED.Models.ProveedorModel
+
+@{
+    ViewData["Title"] = "Añadir Proveedor";
+}
+
+<p style="color:darkorange" ;>@TempData["provexiste"]</p>
+
+
+<h1>Añadir Proveedor</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cedula" class="control-label">Cédula física o jurídica</label>
+                <input asp-for="cedula" class="form-control" />
+                <span asp-validation-for="cedula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-label">Descripción</label>
+                <input asp-for="descripcion" class="form-control" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Añadir Proveedor" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+<div>
+    <a asp-action="List">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+   

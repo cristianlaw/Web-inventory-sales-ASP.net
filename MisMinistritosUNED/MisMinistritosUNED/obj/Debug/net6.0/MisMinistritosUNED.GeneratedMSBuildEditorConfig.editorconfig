@@ -1,0 +1,144 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MisMinistritosUNED
+build_property.RootNamespace = MisMinistritosUNED
+build_property.ProjectDir = C:\Users\VM\Desktop\Cristian_Law_Arrieta_Proyecto_3\Proyecto3\MisMinistritosUNED\MisMinistritosUNED\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\VM\Desktop\Cristian_Law_Arrieta_Proyecto_3\Proyecto3\MisMinistritosUNED\MisMinistritosUNED
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Cliente/CreateCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmVhdGVDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Cliente/DeleteCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxEZWxldGVDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Cliente/ListClientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMaXN0Q2xpZW50ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Cliente/ReadCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWFkQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Cliente/UpdateCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxVcGRhdGVDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Factura/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Factura/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYVxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Factura/ListFactura.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYVxMaXN0RmFjdHVyYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Factura/Read.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYVxSZWFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Login/LoginAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5BZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Login/LoginCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5DbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Producto/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Producto/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Producto/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Producto/Read.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cUmVhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Producto/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Proveedor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Proveedor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Proveedor/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Proveedor/Read.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXFJlYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Proveedor/Replace.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXFJlcGxhY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Proveedor/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Tour/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Tour/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Tour/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Tour/Read.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxSZWFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Tour/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/VM/Desktop/Cristian_Law_Arrieta_Proyecto_3/Proyecto3/MisMinistritosUNED/MisMinistritosUNED/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dc0a7t5kem

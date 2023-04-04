@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MisMinistritosUNED.Models.TourModel>
+
+@{
+    ViewData["Title"] = "Lista Tours";
+}
+<script language="javascript" type="text/javascript">
+    function StopBack() {
+        window.history.forward(1);
+    }
+</script>
+<h1>Lista de Tours</h1>
+
+<p>
+    <a asp-action="Create">Añadir Tour</a>
+</p>
+@if (Model.Count() > 0) //Valida si hay elementos y entra
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <label class="control-label">Id:</label>
+                </th>
+                <th>
+                    <label class="control-label">Descripción</label>
+                </th>
+                <th>
+                    <label class="control-label">Imagen</label>
+                </th>
+                <th>
+                    <label class="control-label">Días del tour</label>
+                </th>
+                <th>
+                    <label class="control-label">Proveedor:</label>
+                </th>
+                <th>
+                    <label class="control-label">Precio:</label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
+                    <td>
+                        <img src="data:image/jpg;base64,@item.verImagen" width="100px" height="100px"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diasTour)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.proveedor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precioTour)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modificar", "Update", new { id=item.id}) |
+                        @Html.ActionLink("Detalles", "Read", new { id=item.id }) |
+                        @Html.ActionLink("Borrar", "Delete", new { id=item.id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <a asp-action="LoginAdmin" asp-controller="Login">Volver a las opciones</a>
+    <br />
+    <br />
+    <a asp-action="Login" asp-controller="Login">Volver al login</a>
+}
+else
+{
+    <p>No hay productos</p>
+    <br />
+    <a asp-action="LoginAdmin" asp-controller="Login">Volver a las opciones</a>
+    <br />
+    <br />
+    <a asp-action="Login" asp-controller="Login">Volver al login</a>
+}
+

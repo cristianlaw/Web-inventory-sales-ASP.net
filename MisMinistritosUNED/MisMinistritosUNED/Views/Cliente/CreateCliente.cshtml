@@ -1,0 +1,85 @@
+﻿@model MisMinistritosUNED.Models.ClienteModel
+
+@{
+    ViewData["Title"] = "Registrar Cliente";
+}
+
+<h1>Registrar Cliente</h1>
+
+
+@if (TempData["clientenocreado"] != null)
+{
+    <p style="color:darkorange" ;>@TempData["clientenocreado"]</p>
+}
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateCliente">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cedula" class="control-label">Cédula:</label>
+                <input asp-for="cedula" class="form-control" />
+                <span asp-validation-for="cedula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nombreCompleto" class="control-label">Nombre completo:</label>
+                <input asp-for="nombreCompleto" class="form-control" />
+                <span asp-validation-for="nombreCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fechaNacimiento" class="control-label">Fecha de nacimiento:</label>
+                <input asp-for="fechaNacimiento" class="form-control" />
+                <span asp-validation-for="fechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telefono" class="control-label">Teléfono:</label>
+                <input asp-for="telefono" class="form-control" />
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="profesion" class="control-label">Profesión:</label>
+                <input asp-for="profesion" class="form-control" />
+                <span asp-validation-for="profesion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="correoElectronico" class="control-label">Correo electrónico:</label>
+                <input asp-for="correoElectronico" class="form-control" />
+                <span asp-validation-for="correoElectronico" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="comboReferencia" class="control-label">Donde se enteró de la página</label>
+                <select asp-for="@Model.comboReferencia" class="form-select" asp-items="@(new SelectList(ViewBag.DatosReferencia,"nombreReferencia","nombreReferencia"))"></select>
+                <span asp-validation-for="comboReferencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="contrasena" class="control-label">Contraseña:</label>
+                <input asp-for="contrasena" class="form-control" />
+                <span asp-validation-for="contrasena" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="CREAR CLIENTE" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div id="emailHelp" class="form-text mb-5 text-dark">
+    <a asp-area="" asp-controller="Login" asp-action="Login" class="text-dark fw-bold">Volver al Login </a>
+
+</div>
+<br />
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>

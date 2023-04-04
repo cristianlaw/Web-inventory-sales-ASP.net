@@ -1,0 +1,32 @@
+﻿@model MisMinistritosUNED.Models.ClienteModel
+@{
+    ViewData["Title"] = "Bienvenido";
+}
+
+<h1>Bienvenido al área del Administrador</h1>
+<br/>
+<h4>Opciones</h4>
+
+<div>
+    <hr />
+    <div>        
+        <a asp-action="List" asp-controller="Proveedor" class="btn btn-outline-primary">Área de Proveedores</a>
+        <br />
+        <br />
+        <a asp-action="List" asp-controller="Producto" class="btn btn-outline-primary">Área de Productos</a>
+        <br />
+        <br />        
+        <a asp-action="List" asp-controller="Tour" class="btn btn-outline-primary">Área de Tours</a>
+        <br />
+        <br />
+        <a asp-action="ListClientes" asp-controller="Cliente" class="btn btn-outline-primary">Lista de Clientes</a>
+        <br />
+        <br />
+        <a asp-action="ListFactura" asp-controller="Factura" asp-route-cedula="1-1111-1111"  class="btn btn-outline-primary">Lista de Facturas</a>
+        <br />
+        <br />
+        <br />
+        <a asp-action="Login" asp-controller="Login" class="text-dark fw-bold" >Volver al Login</a>
+        <br />
+    </div>
+    </div>

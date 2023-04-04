@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "vLOVPUAhJh5AF4xy1sFONlpOU4xU3k+qcsI5BPC6ZyE=",
+  "Source": "MisMinistritosAPI",
+  "BasePath": "_content/MisMinistritosAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MisMinistritosAPI\\wwwroot",
+      "Source": "MisMinistritosAPI",
+      "ContentRoot": "C:\\Users\\VM\\Desktop\\Cristian_Law_Arrieta_Proyecto_3\\Proyecto3\\MisMinistritosAPI\\MisMinistritosAPI\\wwwroot\\",
+      "BasePath": "_content/MisMinistritosAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

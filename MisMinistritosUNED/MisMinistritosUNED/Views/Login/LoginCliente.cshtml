@@ -1,0 +1,36 @@
+﻿@model MisMinistritosUNED.Models.ClienteModel
+@{
+    ViewData["Title"] = "Bienvenido";
+}
+
+<h1>Bienvenido al área del Cliente</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dd class="col-sm-20">
+            <h3>
+                @Html.DisplayFor(model => model.nombreCompleto)
+            </h3>
+            <a>
+                @Html.DisplayFor(model => model.cedula)
+            </a>
+        </dd>
+        <br />
+        <hr />
+    </dl>
+</div>
+<div>    
+    <a asp-action="Create" asp-controller="Factura" asp-route-cedula="@Model.cedula" class="btn btn-outline-primary">Facturación</a>
+    <br />
+    <br />    
+    <a asp-action="ReadCliente" asp-controller="Cliente" asp-route-cedula="@Model.cedula" class="text-dark fw-bold">Detalles del Cliente</a>
+    <br />
+    <a asp-action="IrActualizar" asp-controller="Cliente" asp-route-cedula="@Model.cedula" class="text-dark fw-bold">Actualizar Cliente</a>
+    <br />
+    <a asp-action="IrBorrar" asp-controller="Cliente" asp-route-cedula="@Model.cedula" class="text-dark fw-bold">Borrar Cliente</a>
+    <br />
+    <br />
+    <a asp-action="Login" asp-controller="Login" asp-route-cedula="@Model.cedula" class="text-dark fw-bold">Volver al Login</a>
+    <br />
+</div>
